@@ -1,7 +1,7 @@
 <!DOCTYPE xsl:stylesheet PUBLIC "Unofficial XSLT 1.0 DTD" "http://www.w3.org/1999/11/xslt10.dtd"> 
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-	<xsl:output method="text" indent="yes"/>
+	<xsl:output method="text" indent="yes" media-type="application/json"/>
 	
 	<!-- nodo a texto -->
 	<xsl:template name="manualToText">
@@ -27,8 +27,9 @@
 		    </xsl:if>
 		    <xsl:for-each select="$node/*">
 			    <xsl:call-template name="autoToText">
-		            <xsl:with-param name="node" select="."/>
-			    </xsl:call-template>,
+				    <xsl:with-param name="node" select="."/>
+			    </xsl:call-template>
+			    <xsl:if test="position() != last()">,</xsl:if>
 		    </xsl:for-each>
 		}</xsl:template>
 	
@@ -40,11 +41,11 @@
 			    <xsl:call-template name="autoToText">
 				    <xsl:with-param name="node" select="."/>
 			    </xsl:call-template>
-		    },
-		</xsl:for-each>]</xsl:template>
+			}<xsl:if test="position() != last()">,</xsl:if>
+		</xsl:for-each>
+		]</xsl:template>
 	
-	<xsl:template match="libros">
-{
+	<xsl:template match="libros">{
 	"libros": [<xsl:for-each select="libro">{
 		<xsl:call-template name="manualToText"> <!-- isbn-->
 			<xsl:with-param name="key">isbn</xsl:with-param>
@@ -52,8 +53,9 @@
 		</xsl:call-template>,
 		<xsl:call-template name="autoToText"><!-- titulo-->
 			<xsl:with-param name="node" select="./titulo"/>
-		</xsl:call-template>,<xsl:call-template name="toDictionary"><xsl:with-param name="append" select="./editorial/@codigo"/><xsl:with-param name="node" select="./editorial"/></xsl:call-template>,<xsl:call-template name="toArray"><xsl:with-param name="node" select="./ediciones"/></xsl:call-template>,<xsl:call-template name="toArray"><xsl:with-param name="node" select="./autores"></xsl:with-param></xsl:call-template>
-	},</xsl:for-each>]
+			</xsl:call-template>,<xsl:call-template name="toDictionary"><xsl:with-param name="append" select="./editorial/@codigo"/><xsl:with-param name="node" select="./editorial"/></xsl:call-template>,<xsl:call-template name="toArray"><xsl:with-param name="node" select="./ediciones"/></xsl:call-template>,<xsl:call-template name="toArray"><xsl:with-param name="node" select="./autores"></xsl:with-param></xsl:call-template>
+    }<xsl:if test="position() != last()">,</xsl:if>
+		</xsl:for-each>]
 }
 		
 	</xsl:template>
