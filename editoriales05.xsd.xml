@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="editoriales">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="editorial" type="editorialT" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+</xsd:element>
+<xsd:complexType name="editorialT">	
+	<xsd:sequence>
+		<xsd:element name="nombre" type="xsd:string"/>
+		<xsd:element name="pais" type="xsd:string"/>
+	</xsd:sequence>
+	<xsd:attribute name="codigo" type="xsd:string" use="required"/>
+</xsd:complexType>
+</xsd:schema>
