@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<libros>
+	<libro isbn="999">
+		<titulo>aaa</titulo>
+		<editorial codigo="edi2">
+			<nombre>bbb</nombre>
+			<pais>ccc</pais>
+		</editorial>
+		<ediciones>
+			<edicion>enero 2014</edicion>
+		</ediciones>
+		<autores>
+			<dni>999</dni>
+			<dni>25</dni>
+		</autores>
+		<tema></tema>
+	</libro>
+	<libro isbn="999">
+		<titulo>aaa</titulo>
+		<editorial codigo="edi2">
+			<nombre>bbb</nombre>
+			<pais>ccc</pais>
+		</editorial>
+		<ediciones>
+			<edicion>enero 2014</edicion>
+		</ediciones>
+		<autores>
+			<dni>999</dni>
+			<dni>25</dni>
+		</autores>
+		<tema></tema>
+	</libro>
+</libros>
