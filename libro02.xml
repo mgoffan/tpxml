@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<libro isbn="str4321">
+  <titulo>str4321</titulo>
+  <editorial codigo="str4321" />
+  <ediciones>
+    <edicion>str4321</edicion>
+  </ediciones>
+  <autores>
+    <dni>str4321</dni>
+  </autores>
+  <tema>str4321</tema>
+</libro>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<editoriales>
+  <editorial codigo="str1234">
+    <nombre>str1234</nombre>
+    <pais>str1234</pais>
+  </editorial>
+  <editorial codigo="str4321">
+    <nombre>str4321</nombre>
+    <pais>str4321</pais>
+  </editorial>
+</editoriales>
